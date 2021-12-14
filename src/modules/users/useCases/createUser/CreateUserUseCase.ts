@@ -7,6 +7,7 @@ interface IRequest {
 }
 
 class CreateUserUseCase {
+  // eslint-disable-next-line prettier/prettier
   constructor(private usersRepository: IUsersRepository) { }
 
   execute({ email, name }: IRequest): User {
@@ -16,7 +17,9 @@ class CreateUserUseCase {
       throw new Error("User already exists");
     }
 
-    user = new User();
+    const user = this.usersRepository.create({ name, email });
+
+    return user;
   }
 }
 

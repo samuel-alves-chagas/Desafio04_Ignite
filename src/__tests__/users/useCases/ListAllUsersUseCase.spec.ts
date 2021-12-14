@@ -35,6 +35,9 @@ describe("ListAllUsersUseCase", () => {
 
     const users = listAllUsersUseCase.execute({ user_id: user1.id });
 
+    console.log(users);
+    console.log(typeof users);
+
     expect(users).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
